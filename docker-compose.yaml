@@ -24,3 +24,19 @@ services:
       , "--byron-delegation-certificate", "/data/byron-delegation.cert"
       , "--byron-signing-key", "/data/byron-delegate.key"
       ]
+  cardano-wallet:
+    image: inputoutput/cardano-wallet:latest
+    volumes:
+      - ./wallet-db:/wallet-db
+      - ./devnet:/data
+    ports:
+      - 8090:8090
+    entrypoint: []
+    command: cardano-wallet serve --node-socket /data/ipc/node.socket --database /data/wallet-db --listen-address 0.0.0.0 --testnet /data/genesis-byron.json
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        compress: "true"
+        max-file: "10"
+        max-size: "50m"

@@ -1,0 +1,22 @@
+{
+  "name": "Alice",
+  "mnemonic_sentence": [
+    "lottery",
+    "ring",
+    "detect",
+    "drip",
+    "black",
+    "match",
+    "spoon",
+    "post",
+    "bind",
+    "suit",
+    "gather",
+    "someone",
+    "notice",
+    "hero",
+    "scrap"
+  ],
+  "passphrase": "0123456789",
+  "address_pool_gap": 20
+}

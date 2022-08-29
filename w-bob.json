@@ -1,0 +1,22 @@
+{
+  "name": "Bob",
+  "mnemonic_sentence": [
+    "drill",
+    "piece",
+    "rotate",
+    "badge",
+    "rapid",
+    "foam",
+    "ginger",
+    "panda",
+    "velvet",
+    "version",
+    "duck",
+    "travel",
+    "script",
+    "police",
+    "enemy"
+  ],
+  "passphrase": "0123456789",
+  "address_pool_gap": 20
+}
