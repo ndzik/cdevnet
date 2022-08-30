@@ -24,6 +24,7 @@ services:
       , "--byron-delegation-certificate", "/data/byron-delegation.cert"
       , "--byron-signing-key", "/data/byron-delegate.key"
       ]
+
   cardano-wallet:
     image: inputoutput/cardano-wallet:latest
     volumes:
