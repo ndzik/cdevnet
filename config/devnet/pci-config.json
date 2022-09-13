@@ -1,0 +1,20 @@
+{
+  "cicSlotConfig": {
+    "scSlotLength": 1000,
+    "scSlotZeroTime": 1662037890000
+  },
+  "cicPort": 9083,
+  "cicSecurityParam": 2160,
+  "cicSocketPath": "./devnet/ipc/node.socket",
+  "cicDbPath": "/tmp/chain-index.db",
+  "cicNetworkId": {
+    "contents": {
+      "unNetworkMagic": 42
+    },
+    "tag": "Testnet"
+  },
+  "cicStoreFrom": {
+    "unBlockNo": 140
+  },
+  "cicAppendTransactionQueueSize": 1
+}

@@ -14,6 +14,7 @@ cp -af "$BASEDIR/config/credentials" "$TARGETDIR"
 mkdir $TARGETDIR/wallet-db
 echo '{"Producers": []}' > "$TARGETDIR/topology.json"
 sed -i "s/\"startTime\": [0-9]*/\"startTime\": $(date +%s)/" "$TARGETDIR/genesis-byron.json" && \
+sed -i "s/\"scSlotZeroTime\": [0-9]*/\"scSlotZeroTime\": $(date +%s)0000/" "$TARGETDIR/pci-config.json" && \
 sed -i "s/\"systemStart\": \".*\"/\"systemStart\": \"$(date -u +%FT%TZ)\"/" "$TARGETDIR/genesis-shelley.json"
 
 find $TARGETDIR -type f -exec chmod 0400 {} \;
