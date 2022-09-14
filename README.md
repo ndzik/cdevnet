@@ -34,7 +34,7 @@ Make sure you have the following tools installed:
 ## Setting up the devnet
 
 Navigate to the `cdevnet` directory and execute `./prepare-devnet.sh`  
-This sets up the configs and genesis files for the devnet. It will also tell you the start-time. **Copy the start-time for later**.
+This sets up the configs and genesis files for the devnet. It will also tell you the start-time.
 
 Next, execute `docker-compose up` to start the node running the devnet and the wallet server. You can watch the state of the chain using `./watch-chain.sh`
 
@@ -46,17 +46,15 @@ To fund the wallets, execute `./seed-devnet.sh` which adds some Ada to each wall
 Now you can start the chain-index, using `./start-chain-index.sh`   
 Note that for some reason the chain-index does not seem to sync past the genesis block (0%). We don't know the reason for this yet.
 
-To install the perun-pab application, navigate to the `perun-cardano-contract` directory, open the `perun-pab.yaml` config and paste the start-time you received after executing `./prepare-devnet` earlier into the `scSlotZeroTime` value. Now install the `perun-pab` using 
-
-`cabal install perun-pab`
+To install the perun-pab application, execute `cabal install perun-pab`
 
 Finally, you can start the `perun-pab` by executing first 
 
-`sudo perun-pab --config plutus-pab.yaml migrate`
+`sudo perun-pab --config [PATH_TO_cdevnet]/devnet/perun-pab.yaml migrate`
 
 and then
 
-`perun-pab --config plutus-pab.yaml --passphrase 0123456789 webserver`
+`perun-pab --config [PATH_TO_cdevnet]/devnet/perun-pab.yaml --passphrase 0123456789 webserver`
 
 To interact with the Perun app, use 
 
