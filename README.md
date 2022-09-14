@@ -54,7 +54,7 @@ Finally, you can start the `perun-pab` by executing first
 
 and then
 
-`perun-pab --config [PATH_TO_cdevnet]/devnet/perun-pab.yaml --passphrase 0123456789 webserver`
+`sudo perun-pab --config [PATH_TO_cdevnet]/devnet/perun-pab.yaml --passphrase 0123456789 webserver`
 
 To interact with the Perun app, use 
 
