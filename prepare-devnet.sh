@@ -8,6 +8,7 @@ BASEDIR=$(realpath .)
 TARGETDIR="devnet"
 STARTTIME=$(date +%s)
 SYSTEMSTART=$(date -u +%FT%TZ)
+NODE_SOCKET_PATH="$(pwd)/$TARGETDIR/ipc/node.socket"
 
 [ -d "$TARGETDIR" ] && { echo "Cleaning up directory $TARGETDIR" ; sudo rm -r $TARGETDIR ; }
 
@@ -18,6 +19,7 @@ echo '{"Producers": []}' > "$TARGETDIR/topology.json"
 sed -i "s/\"startTime\": [0-9]*/\"startTime\": $STARTTIME/" "$TARGETDIR/genesis-byron.json" && \
 sed -i "s/\"scSlotZeroTime\": [0-9]*/\"scSlotZeroTime\": ${STARTTIME}0000/" "$TARGETDIR/pci-config.json" && \
 sed -i "s/scSlotZeroTime: [0-9]*/scSlotZeroTime: ${STARTTIME}0000/" "$TARGETDIR/perun-pab.yaml" && \
+sed -i "s+pscSocketPath: .*+pscSocketPath: ${NODE_SOCKET_PATH}+" "$TARGETDIR/perun-pab.yaml" && \
 sed -i "s/\"systemStart\": \".*\"/\"systemStart\": \"$SYSTEMSTART\"/" "$TARGETDIR/genesis-shelley.json"
 
 find $TARGETDIR -type f -exec chmod 0400 {} \;

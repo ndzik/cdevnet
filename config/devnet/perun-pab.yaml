@@ -18,7 +18,7 @@ walletServerConfig:
 
 nodeServerConfig:
   pscBaseUrl: http://localhost:3001
-  pscSocketPath: ../cdevnet/devnet/ipc/node.socket
+  pscSocketPath: ../cardano-devnet/devnet/ipc/node.socket
   pscKeptBlocks: 100
   pscNetworkId: "42" # Testnet network ID (main net = empty string)
   pscSlotConfig:
