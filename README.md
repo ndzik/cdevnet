@@ -10,7 +10,7 @@ This is thoroughly explained in the [perun-cardano-contract](https://github.com/
 
 ### Installing the Chain-Index
 
-First, clone the [plutus-apps](https://github.com/input-output-hk/plutus-apps) repository and checkout the tag `v0.1.0`
+First, clone the [plutus-apps](https://github.com/input-output-hk/plutus-apps) repository and checkout `next-node`
 
 Inside the `plutus-apps` directory, create a file called `cabal.project.local` with the following contents:
 
@@ -33,13 +33,13 @@ Make sure you have the following tools installed:
 
 ## Setting up the devnet
 
-Navigate to the `cdevnet` directory and execute `./prepare-devnet.sh`  
+Navigate to the `cardano-devnet` directory and execute `./prepare-devnet.sh`  
 This sets up the configs and genesis files for the devnet. It will also tell you the start-time.
 
 Next, execute `docker-compose up` to start the node running the devnet and the wallet server. You can watch the state of the chain using `./watch-chain.sh`
 
 To create the wallets, execute `./create-wallets.sh`  
-This will create two wallets (Alice and Bob) via the wallet server. These wallets are deterministic on devnet restart. You can find information about the wallets in the corresponding files in the `cdevnet` directory, especially the addresses and walletids might be important.
+This will create two wallets (Alice and Bob) via the wallet server. These wallets are deterministic on devnet restart. You can find information about the wallets in the corresponding files in the `cardano-devnet` directory, especially the addresses and walletids might be important.
 
 To fund the wallets, execute `./seed-devnet.sh` which adds some Ada to each wallet.
 
@@ -50,11 +50,11 @@ To install the perun-pab application, execute `cabal install perun-pab`
 
 Finally, you can start the `perun-pab` by executing first 
 
-`sudo perun-pab --config [PATH_TO_cdevnet]/devnet/perun-pab.yaml migrate`
+`sudo perun-pab --config [PATH_TO_cardano-devnet]/devnet/perun-pab.yaml migrate`
 
 and then
 
-`sudo perun-pab --config [PATH_TO_cdevnet]/devnet/perun-pab.yaml --passphrase 0123456789 webserver`
+`sudo perun-pab --config [PATH_TO_cardano-devnet]/devnet/perun-pab.yaml --passphrase 0123456789 webserver`
 
 To interact with the Perun app, use 
 
