@@ -27,9 +27,9 @@ Then, navigate to the `plutus-chain-index` directory inside `plutus-apps` and in
 
 ### Installing other tools
 
-Make sure you have the following tools installed:
+Make sure you have the following tools/dependencies installed:
 
-`docker`, `docker-compose`, `date`, `jq`
+`docker`, `docker-compose`, `date`, `jq`, `libsecp256k1`
 
 ## Setting up the devnet
 
