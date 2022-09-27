@@ -10,7 +10,7 @@ This is thoroughly explained in the [perun-cardano-contract](https://github.com/
 
 ### Installing the Chain-Index
 
-First, clone the [plutus-apps](https://github.com/input-output-hk/plutus-apps) repository and checkout `next-node`
+First, clone the [plutus-apps](https://github.com/input-output-hk/plutus-apps) repository and checkout tag `e25565ae8bd8a5b06b095e8fdeec90ce1ba65773`
 
 Inside the `plutus-apps` directory, create a file called `cabal.project.local` with the following contents:
 
