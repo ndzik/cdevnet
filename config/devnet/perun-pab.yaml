@@ -23,12 +23,13 @@ nodeServerConfig:
   pscKeptBlocks: 100
   pscNetworkId: "42" # Testnet network ID (main net = empty string)
   pscSlotConfig:
-    scSlotZeroTime: 16631491930000
+    scSlotZeroTime: 1663149193000
     scSlotLength: 1000 # In milliseconds
   pscInitialTxWallets:
     - getWallet: 1
     - getWallet: 2
   pscNodeMode: AlonzoNode
+  pscProtocolParametersJsonPath: ../cardano-devnet/devnet/pparams.json
 
 chainIndexConfig:
   ciBaseUrl: http://localhost:9083
