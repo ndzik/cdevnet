@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Seed a "devnet" by distributing some Ada to commit and also some marked as
-# "fuel" for the Hydra Head.
 set -eo pipefail
 
 SCRIPT_DIR=$(realpath $(dirname $(realpath $0)))

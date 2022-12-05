@@ -27,4 +27,4 @@ sed -i "s/\"systemStart\": \".*\"/\"systemStart\": \"$SYSTEMSTART\"/" "$TARGETDI
 find $TARGETDIR -type f -exec chmod 0400 {} \;
 mkdir "$TARGETDIR/ipc"
 echo "Prepared devnet, you can start the cluster now"
-echo "The start-time is $STARTTIME" 
+echo "The start-time is $STARTTIME"

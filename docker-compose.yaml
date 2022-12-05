@@ -1,43 +1,49 @@
 version: "3.9"
 
 services:
-  cardano-node:
-    image: inputoutput/cardano-node:1.35.3
-    ports:
-      - "3001:3001"
-    volumes:
-      - ./devnet:/data
-    environment:
-      - CARDANO_BLOCK_PRODUCER=true
-      - CARDANO_SOCKET_PATH=/data/ipc/node.socket # used by cardano-node
-      - CARDANO_NODE_SOCKET_PATH=/data/ipc/node.socket # used by cardano-cli
-    command:
-      [ "run"
-      , "--config", "/data/cardano-node.json"
-      , "--topology", "/data/topology.json"
-      , "--database-path", "/data/db"
-      , "--shelley-kes-key", "/data/kes.skey"
-      , "--shelley-vrf-key", "/data/vrf.skey"
-      , "--shelley-operational-certificate", "/data/opcert.cert"
-      , "--host-addr", "127.0.0.1"
-      , "--port", "3001"
-      , "--byron-delegation-certificate", "/data/byron-delegation.cert"
-      , "--byron-signing-key", "/data/byron-delegate.key"
-      ]
+    cardano-node:
+      image: inputoutput/cardano-node:1.35.4
+      ports:
+        - "3069:3069"
+      volumes:
+        - ./devnet:/data
+      environment:
+        - CARDANO_BLOCK_PRODUCER=true
+        - CARDANO_SOCKET_PATH=/data/ipc/node.socket # used by cardano-node
+        - CARDANO_NODE_SOCKET_PATH=/data/ipc/node.socket # used by cardano-cli
+      command:
+        [ "run"
+        , "--config", "/data/cardano-node.json"
+        , "--topology", "/data/topology.json"
+        , "--database-path", "/data/db"
+        , "--shelley-kes-key", "/data/kes.skey"
+        , "--shelley-vrf-key", "/data/vrf.skey"
+        , "--shelley-operational-certificate", "/data/opcert.cert"
+        , "--host-addr", "127.0.0.1"
+        , "--port", "3069"
+        , "--byron-delegation-certificate", "/data/byron-delegation.cert"
+        , "--byron-signing-key", "/data/byron-delegate.key"
+        ]
 
-  cardano-wallet:
-    image: inputoutput/cardano-wallet:2022.8.16
-    volumes:
-      - ./wallet-db:/wallet-db
-      - ./devnet:/data
-    ports:
-      - 8090:8090
-    entrypoint: []
-    command: cardano-wallet serve --node-socket /data/ipc/node.socket --database /data/wallet-db --listen-address 0.0.0.0 --testnet /data/genesis-byron.json
-    restart: on-failure
-    logging:
-      driver: "json-file"
-      options:
-        compress: "true"
-        max-file: "10"
-        max-size: "50m"
+    cardano-wallet:
+      image: inputoutput/cardano-wallet:2022.10.6
+      volumes:
+        - ./wallet-db:/wallet-db
+        - ./devnet:/data
+      ports:
+        - 8090:8090
+      entrypoint: []
+      command: [ "cardano-wallet"
+                , "serve"
+                , "--node-socket", "/data/ipc/node.socket"
+                , "--database", "/data/wallet-db"
+                , "--listen-address", "0.0.0.0"
+                , "--testnet", "/data/genesis-byron.json"
+                ]
+      restart: on-failure
+      logging:
+        driver: "json-file"
+        options:
+          compress: "true"
+          max-file: "10"
+          max-size: "50m"

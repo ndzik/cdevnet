@@ -49,12 +49,5 @@ developmentOptions:
   pabRollbackHistory: null
   pabResumeFrom:
     { "tag" : "PointAtGenesis" }
-    # { "tag" : "Point"
-    # , "pointBlockId" : "613d23b8df670e3692f4e4ab59b179778519de15999ee1a51077fcc02a48abaa"
-    # , "pointSlot" : { "getSlot" : 45656608 }
-    # }
-
-# Optional EKG Server Config
-# ----
-# monitoringConfig:
-#   monitoringPort: 9090
+  monitoringConfig:
+    monitoringPort: 9090

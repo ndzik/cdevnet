@@ -18,9 +18,9 @@
   "TestAlonzoHardForkAtEpoch": 0,
   "TestBabbageHardForkAtEpoch": 0,
 
-  "RequiresNetworkMagic": "RequiresNoMagic",
+  "RequiresNetworkMagic": "RequiresMagic",
 
-  "minSeverity": "Info",
+  "minSeverity": "Debug",
   "defaultBackends": ["KatipBK"],
   "defaultScribes": [[ "StdoutSK", "stdout" ]],
   "setupBackends": ["KatipBK"],
